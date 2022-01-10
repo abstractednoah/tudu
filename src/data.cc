@@ -238,13 +238,10 @@ bool cmp(pToDo t1, pToDo t2)
 			/* Deadline */
 			case 'l':
 				if (chinf1.deadline != chinf2.deadline)
-				{
-					if (chinf1.deadline.valid())
-						res = (chinf1.deadline < chinf2.deadline);
-					else
-						res = false;
-					out = true;
-				}
+                {
+                    res = (chinf1.deadline < chinf2.deadline);
+                    out = true;
+                }
 				break;
 			case 'L':
 				if (chinf1.deadline != chinf2.deadline)
