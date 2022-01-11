@@ -229,9 +229,9 @@ Date Date::operator+(int days)
 bool Date::operator<(Date d)
 {
 	if (_year < d._year)
-		return true;
+		return valid();
 	else if (_year > d._year)
-		return false;
+		return !d.valid();
 	else if (_month < d._month)
 		return true;
 	else if (_month > d._month)
@@ -244,18 +244,7 @@ bool Date::operator<(Date d)
 
 bool Date::operator>(Date d)
 {
-	if (_year > d._year)
-		return true;
-	else if (_year < d._year)
-		return false;
-	else if (_month > d._month)
-		return true;
-	else if (_month < d._month)
-		return false;
-	else if (_day > d._day)
-		return true;
-	else
-		return false;
+    return operator!=(d) && !operator<(d);
 }
 
 bool Date::operator!=(Date d)
